@@ -58,13 +58,13 @@ Resources:
           - ResourceType: volume
             Tags:
               - Key: customer
-                Value: vft
+                Value: coderman
               - Key: project
                 Value: research
           - ResourceType: instance
             Tags:
               - Key: customer
-                Value: vft
+                Value: coderman
               - Key: project
                 Value: research
 
@@ -72,7 +72,7 @@ Resources:
         - ResourceType: launch-template
           Tags:
             - Key: customer
-              Value: vft
+              Value: coderman
             - Key: project
               Value: research
 
@@ -93,7 +93,7 @@ Resources:
           Value: AutoScale-Ec2Instance
         - Key: customer
           PropagateAtLaunch: true
-          Value: vft
+          Value: coderman
         - Key: project
           PropagateAtLaunch: true
           Value: research
