@@ -34,7 +34,7 @@ Resources:
         - Key: Name
           Value: TEST-VPC
         - Key: customer
-          Value: vft
+          Value: coderman
         - Key: project
           Value: research
 
@@ -49,7 +49,7 @@ Resources:
     Properties:
       Tags:
         - Key: customer
-          Value: vft
+          Value: coderman
         - Key: project
           Value: research
 
@@ -72,7 +72,7 @@ Resources:
         - Key: Name
           Value: Subnet1
         - Key: customer
-          Value: vft
+          Value: coderman
         - Key: project
           Value: research
 
@@ -84,7 +84,7 @@ Resources:
         - Key: Name
           Value: Subnet1RouteTable
         - Key: customer
-          Value: vft
+          Value: coderman
         - Key: project
           Value: research
 
@@ -114,7 +114,7 @@ Resources:
         - Key: Name
           Value: Subnet2
         - Key: customer
-          Value: vft
+          Value: coderman
         - Key: project
           Value: research
 
@@ -126,7 +126,7 @@ Resources:
         - Key: Name
           Value: Subnet2RouteTable
         - Key: customer
-          Value: vft
+          Value: coderman
         - Key: project
           Value: research
 
@@ -156,7 +156,7 @@ Resources:
   #       - Key: Name
   #         Value: Subnet3
   #       - Key: customer
-  #         Value: vft
+  #         Value: coderman
   #       - Key: project
   #         Value: research
 
@@ -168,7 +168,7 @@ Resources:
   #       - Key: Name
   #         Value: Subnet3RouteTable
   #       - Key: customer
-  #         Value: vft
+  #         Value: coderman
   #       - Key: project
   #         Value: research
 
@@ -218,7 +218,7 @@ Resources:
       #   - Key: Name
       #     Value: LoadBalancerSecurityGroup
       #   - Key: customer
-      #     Value: vft
+      #     Value: coderman
       #   - Key: project
       #     Value: research 
       
@@ -241,6 +241,6 @@ Resources:
   #       - Key: Name
   #         Value: CCELoadBalancer
   #       - Key: customer
-  #         Value: vft
+  #         Value: coderman
   #       - Key: project
   #         Value: research
