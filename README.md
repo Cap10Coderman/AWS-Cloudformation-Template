@@ -3,7 +3,6 @@
 
 This project consist of cloudformation templates for creating infrastucture for various AWS services.
 
-### What is Cloudformation
 #### Documentation
 
 [Cloudformation](https://aws.amazon.com/cloudformation/)
