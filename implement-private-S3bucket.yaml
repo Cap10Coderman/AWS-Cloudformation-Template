@@ -1,0 +1,54 @@
+Description: This template creates a private s3 bucket
+
+Resources:
+
+  CceBulkImageImportBucket:
+    Type: AWS::S3::Bucket
+    Properties: 
+      PublicAccessBlockConfiguration: #Blocking all public access
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      VersioningConfiguration: #Enabling Versioning
+        Status: Enabled 
+      BucketEncryption: #Encrypt using AES by S3
+        ServerSideEncryptionConfiguration:
+         - BucketKeyEnabled: true
+           ServerSideEncryptionByDefault:
+            SSEAlgorithm: AES256
+      LifecycleConfiguration: #Lifecycle 
+        Rules:
+          - Id: rule1
+            Status: Enabled
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 30
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+            ExpirationInDays: 180
+      Tags: 
+        - Key: customer
+          Value: concourse
+        - Key: supplier
+          Value: vft
+        - Key: project
+          Value: cce
+
+  CceBulkImageImportBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref CceBulkImageImportBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Deny
+            Action:
+              - s3:*
+            Resource:
+              - !GetAtt CceBulkImageImportBucket.Arn
+              - !Join ['/', [!GetAtt CceBulkImageImportBucket.Arn, '*']]
+            Principal:
+              AWS: "*"
+            Condition:
+              Bool:
+                'aws:SecureTransport': false
