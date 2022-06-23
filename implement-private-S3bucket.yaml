@@ -2,7 +2,7 @@ Description: This template creates a bucket policy and a private s3 bucket with 
 
 Resources:
 
-  CceBulkImageImportBucket:
+  PrivateS3Bucket:
     Type: AWS::S3::Bucket
     Properties: 
       PublicAccessBlockConfiguration: #Blocking all public access
@@ -32,10 +32,10 @@ Resources:
         - Key: project
           Value: research
 
-  CceBulkImageImportBucketPolicy:
+  PrivateS3BucketBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref CceBulkImageImportBucket
+      Bucket: !Ref PrivateS3Bucket
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -43,10 +43,11 @@ Resources:
             Action:
               - s3:*
             Resource:
-              - !GetAtt CceBulkImageImportBucket.Arn
-              - !Join ['/', [!GetAtt CceBulkImageImportBucket.Arn, '*']]
+              - !GetAtt PrivateS3Bucket.Arn
+              - !Join ['/', [!GetAtt PrivateS3Bucket.Arn, '*']]
             Principal:
               AWS: "*"
             Condition:
               Bool:
                 'aws:SecureTransport': false
+
