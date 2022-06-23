@@ -50,4 +50,11 @@ Resources:
             Condition:
               Bool:
                 'aws:SecureTransport': false
+                
+Outputs:
+  PrivateS3BucketArn:
+    Description: PrivateS3Bucket Arn
+    Value: !GetAtt PrivateS3Bucket.Arn
+    Export:
+      Name: !Join ['-', [!Ref 'AWS::StackName', 'PrivateS3BucketArn']]
 
