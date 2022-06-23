@@ -1,4 +1,4 @@
-Description: This template creates a private s3 bucket
+Description: This template creates a bucket policy and a private s3 bucket with AES Encryption and Versioning.
 
 Resources:
 
@@ -26,13 +26,11 @@ Resources:
             AbortIncompleteMultipartUpload:
               DaysAfterInitiation: 7
             ExpirationInDays: 180
-      Tags: 
-        - Key: customer
-          Value: concourse
+      Tags:  
         - Key: supplier
-          Value: vft
+          Value: coderman
         - Key: project
-          Value: cce
+          Value: research
 
   CceBulkImageImportBucketPolicy:
     Type: AWS::S3::BucketPolicy
