@@ -26,7 +26,7 @@ To deploy a stack in cloudformation
 
 - Install AWS CLI
 
-`https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html`
+[Follow the Instructions...](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 
 - Configure a profile in AWS cli
