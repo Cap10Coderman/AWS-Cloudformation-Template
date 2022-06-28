@@ -52,28 +52,32 @@ export USER_PROFILE=(USER ROFILE HERE...)
 ```
 - Creating the stack
 
+```
 aws cloudformation create-stack \
 --stack-name $STACK_NAME \
 --template-body file://$TEMPLATE_FILE \
 --tags Key=user,Value=coderman Key=project,Value=research \
 --capabilities CAPABILITY_IAM \
 --profile $USER_PROFILE
-
+```
 - Updating the stack
 
+```
 aws cloudformation update-stack \
 --stack-name $STACK_NAME \
 --template-body file://$TEMPLATE_FILE \
 --tags Key=user,Value=coderman Key=project,Value=research \
 --capabilities CAPABILITY_IAM \
 --profile $USER_PROFILE
+```
 
 - Deleting the stack
 
+```
 aws cloudformation delete-stack \
 --stack-name $STACK_NAME \
 --profile $USER_PROFILE
-
+```
 
 # Hi, I'm Coderman! 👋
 
