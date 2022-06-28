@@ -12,14 +12,9 @@ Resources:
       WebsiteConfiguration: 
         ErrorDocument: error.html
         IndexDocument: index.html
-      # PublicAccessBlockConfiguration:
-      #   BlockPublicAcls: false
-        # BlockPublicPolicy: Boolean
-        # IgnorePublicAcls: Boolean
-        # RestrictPublicBuckets: Boolean
       Tags: 
         - Key: user
-          Value: admin
+          Value: coderman
         - Key: project
           Value: research
 
@@ -38,9 +33,7 @@ Resources:
               - !GetAtt StaticWebHostingBucket.Arn
               - !Join ['/', [!GetAtt StaticWebHostingBucket.Arn, '*']]
 
-
 Outputs:
-
   StaticWebHostingBucketName:
     Description: Bucket Name in which the website is hosted..
     Value: !Ref StaticWebHostingBucket
