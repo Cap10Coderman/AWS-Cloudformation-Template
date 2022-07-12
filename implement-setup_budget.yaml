@@ -24,15 +24,14 @@ Parameters:
     Default: 99
   Subsciber1EmailId:
     Type: String
-    Description: Vfirstt Subsciber 1 Email ID
-    Default: hbansal@vfirstt.com
+    Description: Subsciber 1 Email ID
+    Default: coderman1@gmail.com
   Subsciber2EmailId:
     Type: String
-    Description: Vfirstt Subsciber 2 Email ID
-    Default: ukrishnan@vfirstt.com
+    Description: Subsciber 2 Email ID
+    Default: coderman2@gmail.com
 
 Resources:
-
   MonthlyBudget:
     Type: AWS::Budgets::Budget
     Properties: 
