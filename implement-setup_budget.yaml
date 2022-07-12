@@ -1,0 +1,106 @@
+
+Description: This template setup a budget in the account
+
+Parameters:
+  BudgetLimit: 
+    Type: String
+    Description: Budget Limit for the month
+    Default: 900
+  BudgetUnit: 
+    Type: String
+    Description: Budget Limit for the month
+    Default: USD
+
+
+  FirstBudgetThresholdPercentage:
+    Description: The first threshold at which you'll receive a notification
+    Type: Number
+    Default: 50
+  SecondBudgetThresholdPercentage:
+    Description: The second threshold at which you'll receive a notification
+    Type: Number
+    Default: 75
+  ThirdBudgetThresholdPercentage:
+    Description: The third threshold at which you'll receive a notification
+    Type: Number
+    Default: 99
+
+
+  VfirsttSubsciber1EmailId:
+    Type: String
+    Description: Vfirstt Subsciber 1 Email ID
+    Default: hbansal@vfirstt.com
+  VfirsttSubsciber2EmailId:
+    Type: String
+    Description: Vfirstt Subsciber 2 Email ID
+    Default: ukrishnan@vfirstt.com
+
+  # CCESubscriber1EmailId:
+  #   Type: String
+  #   Description: CCE Subsciber 1 Email ID
+  #   Default: 
+
+  # CCESubscriber2EmailId:
+  #   Type: String
+  #   Description: CCE Subsciber 2 Email ID
+  #   Default: 
+
+  # CCESubscriber3EmailId:
+  #   Type: String
+  #   Description: CCE Subsciber 3 Email ID
+  #   Default:
+
+
+Resources:
+
+  MonthlyBudget:
+    Type: AWS::Budgets::Budget
+    Properties: 
+      Budget: 
+        BudgetLimit:
+          Amount: !Ref BudgetLimit
+          Unit: !Ref BudgetUnit
+        TimeUnit: MONTHLY
+        BudgetType: COST
+        CostTypes:
+          IncludeCredit: false
+          IncludeDiscount: false
+          IncludeRefund: false
+      NotificationsWithSubscribers: 
+
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold: !Ref FirstBudgetThresholdPercentage
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref VfirsttSubsciber1EmailId
+            - SubscriptionType: EMAIL
+              Address: !Ref VfirsttSubsciber2EmailId
+
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold: !Ref SecondBudgetThresholdPercentage
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref VfirsttSubsciber1EmailId
+            - SubscriptionType: EMAIL
+              Address: !Ref VfirsttSubsciber2EmailId
+
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold:  !Ref ThirdBudgetThresholdPercentage
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref VfirsttSubsciber1EmailId
+            - SubscriptionType: EMAIL
+              Address: !Ref VfirsttSubsciber2EmailId
+
+Outputs:
+  BudgetId:
+    Value: !Ref MonthlyBudget
