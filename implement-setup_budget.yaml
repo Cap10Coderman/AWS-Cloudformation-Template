@@ -10,8 +10,6 @@ Parameters:
     Type: String
     Description: Budget Limit for the month
     Default: USD
-
-
   FirstBudgetThresholdPercentage:
     Description: The first threshold at which you'll receive a notification
     Type: Number
@@ -24,32 +22,14 @@ Parameters:
     Description: The third threshold at which you'll receive a notification
     Type: Number
     Default: 99
-
-
-  VfirsttSubsciber1EmailId:
+  Subsciber1EmailId:
     Type: String
     Description: Vfirstt Subsciber 1 Email ID
     Default: hbansal@vfirstt.com
-  VfirsttSubsciber2EmailId:
+  Subsciber2EmailId:
     Type: String
     Description: Vfirstt Subsciber 2 Email ID
     Default: ukrishnan@vfirstt.com
-
-  # CCESubscriber1EmailId:
-  #   Type: String
-  #   Description: CCE Subsciber 1 Email ID
-  #   Default: 
-
-  # CCESubscriber2EmailId:
-  #   Type: String
-  #   Description: CCE Subsciber 2 Email ID
-  #   Default: 
-
-  # CCESubscriber3EmailId:
-  #   Type: String
-  #   Description: CCE Subsciber 3 Email ID
-  #   Default:
-
 
 Resources:
 
@@ -75,9 +55,9 @@ Resources:
             ThresholdType: PERCENTAGE
           Subscribers:
             - SubscriptionType: EMAIL
-              Address: !Ref VfirsttSubsciber1EmailId
+              Address: !Ref Subsciber1EmailId
             - SubscriptionType: EMAIL
-              Address: !Ref VfirsttSubsciber2EmailId
+              Address: !Ref Subsciber2EmailId
 
         - Notification:
             NotificationType: ACTUAL
@@ -86,9 +66,9 @@ Resources:
             ThresholdType: PERCENTAGE
           Subscribers:
             - SubscriptionType: EMAIL
-              Address: !Ref VfirsttSubsciber1EmailId
+              Address: !Ref Subsciber1EmailId
             - SubscriptionType: EMAIL
-              Address: !Ref VfirsttSubsciber2EmailId
+              Address: !Ref Subsciber2EmailId
 
         - Notification:
             NotificationType: ACTUAL
@@ -97,9 +77,9 @@ Resources:
             ThresholdType: PERCENTAGE
           Subscribers:
             - SubscriptionType: EMAIL
-              Address: !Ref VfirsttSubsciber1EmailId
+              Address: !Ref Subsciber1EmailId
             - SubscriptionType: EMAIL
-              Address: !Ref VfirsttSubsciber2EmailId
+              Address: !Ref Subsciber2EmailId
 
 Outputs:
   BudgetId:
