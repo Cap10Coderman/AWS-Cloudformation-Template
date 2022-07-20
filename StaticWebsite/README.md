@@ -4,7 +4,7 @@
 ```
 export STACK_NAME= (STACK NAME HERE...)\
 export REGION=(REGION NAME HERE...) \
-export TEMPLATE_FILE=(FILE NAME HERE...) \
+export TEMPLATE_FILE=implement-StaticWebsite-s3.yaml \
 export USER_PROFILE=(USER ROFILE HERE...)
 
 ```
