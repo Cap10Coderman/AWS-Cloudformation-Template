@@ -50,15 +50,13 @@ Resources:
           Value: TheWordPressVpc
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
       Tags:
-        - Key: customer
-          Value: vft
+        - Key: owner
+          Value: cap10coderman
         - Key: project
           Value: wordpressonec2
 
@@ -89,8 +87,8 @@ Resources:
       Tags:
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
         
   InstanceSSMProfile:
     Type: 'AWS::IAM::InstanceProfile'
@@ -111,8 +109,8 @@ Resources:
           Value: NATPublicSubnet
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
       VpcId: !Ref TheVpc
 
   NATPublicSubnetRouteTable:
@@ -124,8 +122,8 @@ Resources:
           Value: NATPublicSubnet
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
 
   NATPublicSubnetRoute:
     Type: AWS::EC2::Route
@@ -167,9 +165,8 @@ Resources:
       Tags:
         - Key: project
           Value: wordpressonec2
-        - Key: user 
-          Value: Unny
-
+        - Key: owner
+          Value: cap10coderman
   NatInstance:
     Type: AWS::EC2::Instance
     DependsOn: InternetGatewayAttachment
