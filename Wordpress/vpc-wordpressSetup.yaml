@@ -222,8 +222,8 @@ Resources:
           Value: WordpressPrivateSubnet
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
 
   WordpressPrivateSubnetRouteTable:
     Type: AWS::EC2::RouteTable
@@ -234,8 +234,8 @@ Resources:
           Value: WordpressPrivateSubnetRouteTable
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
 
   WordpressPrivateSubnetRoute:
     Type: AWS::EC2::Route
@@ -264,8 +264,8 @@ Resources:
           Value: WordpressPublicSubnet
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
 
   WordpressPublicSubnetRouteTable:
     Type: AWS::EC2::RouteTable
@@ -276,8 +276,8 @@ Resources:
           Value: WordpressPublicSubnetRouteTable
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
 
   WordpressPublicSubnetRoute:
     Type: AWS::EC2::Route
@@ -306,8 +306,8 @@ Resources:
           Value: PublicSubnet
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
 
   PublicSubnetRouteTable:
     Type: AWS::EC2::RouteTable
@@ -318,8 +318,8 @@ Resources:
           Value: PublicSubnetRouteTable
         - Key: project
           Value: wordpressonec2
-        - Key: user
-          Value: Unny 
+        - Key: owner
+          Value: cap10coderman
 
   PublicSubnetRoute:
     Type: AWS::EC2::Route
@@ -357,9 +357,9 @@ Resources:
       Tags:
         - Key: project
           Value: wordpressonec2
-        - Key: user 
-          Value: Unny
-
+        - Key: owner
+          Value: cap10coderman
+          
   WordpressEC2InstanceSecurityGroup:
       Type: AWS::EC2::SecurityGroup
       Properties:
@@ -384,8 +384,8 @@ Resources:
         Tags:
           - Key: Name
             Value: WordpressEC2InstanceSecurityGroup
-          - Key: user
-            Value: Unny
+          - Key: owner
+            Value: cap10coderman
           - Key: project
             Value: wordpressonec2
 
