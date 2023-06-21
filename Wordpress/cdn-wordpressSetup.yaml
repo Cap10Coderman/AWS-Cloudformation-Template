@@ -1,0 +1,56 @@
+Description:  This Cloudformation template will create a Cloudfront distribution with ALB as an Origin.
+
+Parameters:
+  ALBStackName:
+    Description: ALB stack name
+    Type: String
+    Default: VFT-Wordpress-ALB-3 #Stack name of ALB
+
+Resources:
+
+  CloudFrontOriginIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: 'origin identity'
+
+  WordpressCloudfront:
+    Type: AWS::CloudFront::Distribution
+    Properties: 
+      DistributionConfig: 
+        Comment: 'Cloudfront Distribution pointing ALB Origin'
+        Origins:
+          - DomainName: 
+              !ImportValue 
+                'Fn::Sub': '${ALBStackName}-WordpressALBDNSName'
+            Id: 
+              !ImportValue 
+                'Fn::Sub': '${ALBStackName}-WordPressALB'
+            CustomOriginConfig:
+                  HTTPPort: '80'
+                  HTTPSPort: '443'
+        Enabled: true
+        TargetOriginId:
+          !ImportValue 
+                'Fn::Sub': '${ALBStackName}-WordPressALB'
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+        ViewerProtocolPolicy: redirect-to-https
+        
+      Tags: 
+        - Key: customer
+          Value: vft
+        - Key: project
+          Value: research
+
+Outputs:
+
+  CloudFrontEndpoint:
+    Description: Endpoint of CloudFront
+    Value: !Ref WordpressCloudfront
+    Export:
+      Name:  !Sub "${AWS::StackName}-CloudFrontEndpoint"
+
+
